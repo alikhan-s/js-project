@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tasks (Parts 1 & 2)</title>
+    <!-- Загружаем Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Дополнительные стили для фиолетовой кнопки и фона */
+        .btn-purple {
+            color: #fff;
+            background-color: #6f42c1; /* Фиолетовый цвет Bootstrap */
+            border-color: #6f42c1;
+        }
+        .btn-purple:hover {
+            color: #fff;
+            background-color: #5a359a;
+            border-color: #543192;
+        }
+        .bg-purple {
+            background-color: #6f42c1 !important;
+        }
+        .border-purple-dark {
+            border-color: #543192 !important;
+        }
+        /* Добавляем немного отступов для тела, как было в Tailwind */
+        body {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container-lg bg-white p-4 p-md-5 rounded-3 shadow-lg">
+        <h1 class="display-5 fw-bold text-center text-primary mb-5">JavaScript Fundamentals Tasks</h1>
+
+        <!-- Part 1: Introduction to JavaScript -->
+        <div class="mb-5 pb-5 border-bottom">
+            <h2 class="h2 fw-semibold text-dark mb-4">Part 1: Introduction & Console</h2>
+            
+            <!-- Task 0: First Script -->
+            <div class="bg-light-subtle p-4 rounded-3 shadow-sm mb-4">
+                <h3 class="h4 fw-medium text-dark-emphasis mb-2">Task 0: First Script</h3>
+                <p class="text-secondary mb-3">Click the button to show the "Hello World" message. Open the console (F12) to see your name and group.</p>
+                <button id="helloButton" class="btn btn-primary btn-lg w-100 w-md-auto">
+                    Show "Hello, JavaScript World!"
+                </button>
+            </div>
+
+            <!-- Task 1: Variables & Operators -->
+            <div class="bg-light-subtle p-4 rounded-3 shadow-sm">
+                <h3 class="h4 fw-medium text-dark-emphasis mb-2">Task 1: Variables & Operators</h3>
+                <p class="text-secondary mb-0">This task's output (variable declarations, arithmetic, and string concatenation) is in the console. Please open it (F12) to view.</p>
+            </div>
+        </div>
+
+        <!-- Part 2: DOM Manipulation -->
+        <div>
+            <h2 class="h2 fw-semibold text-dark mb-4">Part 2: DOM Manipulation</h2>
+
+            <!-- Task 2: Changing Content -->
+            <div class="bg-light-subtle p-4 rounded-3 shadow-sm mb-4">
+                <h3 class="h4 fw-medium text-dark-emphasis mb-3">Task 2: Changing Content</h3>
+                <p id="textToChange" class="text-dark fs-5 mb-3 p-4 bg-white rounded border border-light-subtle">
+                    This is the original text. Click the button below to change me.
+                </p>
+                <button id="changeTextBtn" class="btn btn-success btn-lg w-100 w-md-auto">
+                    Change Text
+                </button>
+            </div>
+
+            <!-- Task 3: Changing Styles (Assumed task) -->
+            <div class="bg-light-subtle p-4 rounded-3 shadow-sm">
+                <h3 class="h4 fw-medium text-dark-emphasis mb-3">Task 3: Changing Styles</h3>
+                <p class="text-secondary mb-3">Click the button to change the style of the box below.</p>
+                
+                <!-- Обратите внимание: убраны классы transition из Tailwind, Bootstrap обрабатывает это иначе -->
+                <div id="styleTarget" class="p-4 p-md-5 rounded-3 text-center fw-medium fs-5 text-dark bg-secondary-subtle border border-secondary-subtle">
+                    I am the element to be styled!
+                </div>
+                
+                <button id="changeStyleBtn" class="btn btn-purple btn-lg w-100 w-md-auto mt-3">
+                    Change Style
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Modal for Task 0 -->
+    <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-3 shadow">
+          <div class="modal-header">
+            <h5 class="modal-title h5" id="modalLabel">JavaScript Alert</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Hello, JavaScript World!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
+
