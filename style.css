@@ -1,0 +1,20 @@
+.btn-purple {
+    color: #fff;
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+.btn-purple:hover {
+    color: #fff;
+    background-color: #5a359a;
+    border-color: #543192;
+}
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+.border-purple-dark {
+    border-color: #543192 !important;
+}
+body {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
