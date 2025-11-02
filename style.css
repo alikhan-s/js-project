@@ -1,20 +1,134 @@
-.btn-purple {
-    color: #fff;
+/* General Styles */
+body {
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    color: #333;
+}
+
+img {
+    width: 200px;
+}
+
+/* Styles for Bootstrap "cards" */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: #6f42c1;
+    font-weight: 300;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- CUSTOM BUTTON COLORS --- */
+.btn-primary, .btn-success, .btn-warning, .btn-info, .btn-danger {
     background-color: #6f42c1;
     border-color: #6f42c1;
 }
-.btn-purple:hover {
-    color: #fff;
-    background-color: #5a359a;
-    border-color: #543192;
+
+.btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-info:hover, .btn-danger:hover {
+    background-color: #59369a;
+    border-color: #53338e;
 }
-.bg-purple {
-    background-color: #6f42c1 !important;
+
+/* Task 4: Slide Panel */
+.slide-header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
-.border-purple-dark {
-    border-color: #543192 !important;
+
+.slide-header:hover {
+    background-color: #e9e9e9;
 }
-body {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+
+.slide-panel {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fafafa;
+}
+
+/* Task 8-10: Animation Box */
+#animation-container {
+    background-color: #f8f9fa;
+    border: 1px dashed #ccc;
+    height: 300px;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    background-color: #6f42c1;
+    position: absolute;
+    border-radius: 10px;
+}
+
+/* Task 11: Mini-Project "Accordion" */
+.accordion-project {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #f7f7f7;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:last-of-type {
+    border-bottom: none;
+}
+
+.accordion-header:hover {
+    background-color: #efefef;
+}
+
+.accordion-header.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }

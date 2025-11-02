@@ -3,88 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Tasks (Parts 1 & 2)</title>
-    <!-- Загружаем Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
+    <title>Assignment 7: jQuery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-light">
+<body>
 
-    <div class="container-lg bg-white p-4 p-md-5 rounded-3 shadow-lg">
-        <h1 class="display-5 fw-bold text-center text-primary mb-5">JavaScript Fundamentals Tasks</h1>
+    <header class="container text-center my-4">
+        <h1 id="main-title">Lab 7: Introduction to jQuery</h1>
+        <p class="highlight">We will explore selectors, effects, and animations.</p>
+        <span>(This text will be selected by tag)</span>
+    </header>
 
-        <!-- Part 1: Introduction to JavaScript -->
-        <div class="mb-5 pb-5 border-bottom">
-            <h2 class="h2 fw-semibold text-dark mb-4">Part 1: Introduction & Console</h2>
-            
-            <!-- Task 0: First Script -->
-            <div class="bg-light-subtle p-4 rounded-3 shadow-sm mb-4">
-                <h3 class="h4 fw-medium text-dark-emphasis mb-2">Task 0: First Script</h3>
-                <p class="text-secondary mb-3">Click the button to show the "Hello World" message. Open the console (F12) to see your name and group.</p>
-                <button id="helloButton" class="btn btn-primary btn-lg w-100 w-md-auto">
-                    Show "Hello, JavaScript World!"
-                </button>
+    <main class="container">
+        
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Part 1: Selectors & CSS</h2>
+                <p>Click the button to change text and styles on this page.</p>
+                <button id="btn-task1" class="btn btn-primary">Run Task 1</button>
             </div>
+        </section>
 
-            <!-- Task 1: Variables & Operators -->
-            <div class="bg-light-subtle p-4 rounded-3 shadow-sm">
-                <h3 class="h4 fw-medium text-dark-emphasis mb-2">Task 1: Variables & Operators</h3>
-                <p class="text-secondary mb-0">This task's output (variable declarations, arithmetic, and string concatenation) is in the console. Please open it (F12) to view.</p>
-            </div>
-        </div>
-
-        <!-- Part 2: DOM Manipulation -->
-        <div>
-            <h2 class="h2 fw-semibold text-dark mb-4">Part 2: DOM Manipulation</h2>
-
-            <!-- Task 2: Changing Content -->
-            <div class="bg-light-subtle p-4 rounded-3 shadow-sm mb-4">
-                <h3 class="h4 fw-medium text-dark-emphasis mb-3">Task 2: Changing Content</h3>
-                <p id="textToChange" class="text-dark fs-5 mb-3 p-4 bg-white rounded border border-light-subtle">
-                    This is the original text. Click the button below to change me.
-                </p>
-                <button id="changeTextBtn" class="btn btn-success btn-lg w-100 w-md-auto">
-                    Change Text
-                </button>
-            </div>
-
-            <!-- Task 3: Changing Styles (Assumed task) -->
-            <div class="bg-light-subtle p-4 rounded-3 shadow-sm">
-                <h3 class="h4 fw-medium text-dark-emphasis mb-3">Task 3: Changing Styles</h3>
-                <p class="text-secondary mb-3">Click the button to change the style of the box below.</p>
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Part 2: jQuery Effects</h2>
                 
-                <!-- Обратите внимание: убраны классы transition из Tailwind, Bootstrap обрабатывает это иначе -->
-                <div id="styleTarget" class="p-4 p-md-5 rounded-3 text-center fw-medium fs-5 text-dark bg-secondary-subtle border border-secondary-subtle">
-                    I am the element to be styled!
+                <div class="mb-3">
+                    <h3>Task 2: .hide(), .show(), .toggle()</h3>
+                    <p id="text-visibility">This paragraph will hide and show.</p>
+                    <button id="btn-hide" class="btn btn-success">Hide</button>
+                    <button id="btn-show" class="btn btn-success">Show</button>
+                    <button id="btn-toggle" class="btn btn-success">Toggle</button>
                 </div>
-                
-                <button id="changeStyleBtn" class="btn btn-purple btn-lg w-100 w-md-auto mt-3">
-                    Change Style
-                </button>
+                <hr>
+
+                <div class="mb-3">
+                    <h3>Task 3: .fadeIn(), .fadeOut(), .fadeToggle()</h3>
+                    <img id="fade-img" src="images/fuji_mount.jpg" alt="Fuji Mountain" class="img-fluid mb-2">
+                    <br>
+                    <button id="btn-fade-out" class="btn btn-success">Fade Out</button>
+                    <button id="btn-fade-in" class="btn btn-success">Fade In</button>
+                    <button id="btn-fade-toggle" class="btn btn-success">Fade Toggle</button>
+                </div>
+                <hr>
+
+                <div class="mb-3">
+                    <h3>Task 4: .slideUp(), .slideDown(), .slideToggle()</h3>
+                    <div id="slide-header" class="slide-header">
+                        Click here to expand/collapse the panel
+                    </div>
+                    <div id="slide-panel" class="slide-panel">
+                        <p>This is a hidden panel that appears using <strong>slideToggle()</strong>. A great solution for FAQ sections or hidden content.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Bootstrap Modal for Task 0 -->
-    <div class="modal fade" id="customModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded-3 shadow">
-          <div class="modal-header">
-            <h5 class="modal-title h5" id="modalLabel">JavaScript Alert</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p>Hello, JavaScript World!</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Part 3: DOM Manipulation</h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="script.js" defer></script>
+                <div class="mb-3">
+                    <h3>Task 5: Add & Remove Elements</h3>
+                    <ul id="item-list" class="list-group mb-2">
+                        <li class="list-group-item">First Item</li>
+                    </ul>
+                    <button id="btn-append" class="btn btn-primary">Add to End (.append)</button>
+                    <button id="btn-prepend" class="btn btn-primary">Add to Start (.prepend)</button>
+                    <button id="btn-remove-last" class="btn btn-danger">Remove Last (.remove)</button>
+                </div>
+                <hr>
+
+                <div class="mb-3">
+                    <h3>Task 6: Modifying Attributes</h3>
+                    <img id="attr-img" src="images/fuji_mount.jpg" alt="Image" class="me-3">
+                    <a id="attr-link" href="https://github.com/alikhan-s" target="_blank" class="btn btn-link">Go to GitHub</a>
+                    <br><br>
+                    <button id="btn-change-img" class="btn btn-success">Change Image</button>
+                    <button id="btn-change-link" class="btn btn-success">Change Link (to LinkedIn)</button>
+                </div>
+                <hr>
+
+                <div class="mb-3">
+                    <h3>Task 7: Form Interaction</h3>
+                    <form>
+                        <div class="mb-2">
+                            <label for="input-name" class="form-label">Name:</label>
+                            <input type="text" id="input-name" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="input-email" class="form-label">Email:</label>
+                            <input type="email" id="input-email" class="form-control">
+                        </div>
+                    </form>
+                    <div class="mt-3 p-3 bg-light rounded">
+                        <h4>Live Preview:</h4>
+                        <p class="mb-1">Name: <strong id="output-name">[empty]</strong></p>
+                        <p class="mb-0">Email: <strong id="output-email">[empty]</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Part 4: Animations</h2>
+                <p>The .animate() method allows creating custom animations.</p>
+                <div id="animation-container">
+                    <div id="animate-box" class="box"></div>
+                </div>
+                <button id="btn-animate-basic" class="btn btn-success">Task 8: Basic</button>
+                <button id="btn-animate-seq" class="btn btn-success">Task 9: Sequential</button>
+                <button id="btn-animate-combo" class="btn btn-success">Task 10: Combo</button>
+                <button id="btn-animate-reset" class="btn btn-success">Reset</button>
+            </div>
+        </section>
+
+        <section class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Part 5: Mini Project (Accordion Menu)</h2>
+                
+                <div class="accordion-project">
+                    <div class="accordion-header">
+                        <span class="accordion-icon">+</span> Section 1: What is jQuery?
+                    </div>
+                    <div class="accordion-content">
+                        <p>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.</p>
+                    </div>
+
+                    <div class="accordion-header">
+                        <span class="accordion-icon">+</span> Section 2: Why use Selectors?
+                    </div>
+                    <div class="accordion-content">
+                        <p>jQuery selectors are one of the most important parts of the library. They allow you to "find" (or select) HTML elements and manipulate them. They use a syntax very similar to CSS, which makes them intuitive.</p>
+                    </div>
+
+                    <div class="accordion-header">
+                        <span class="accordion-icon">+</span> Section 3: How does .slideToggle() work?
+                    </div>
+                    <div class="accordion-content">
+                        <p>The <code>.slideToggle()</code> method animates the height of an element. This causes the element to smoothly 'slide down' (if it was hidden) or 'slide up' (if it was visible). We use it here to create the accordion effect.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-muted py-4">
+        <p>Student: Serik Alikhan | Group: SE-2421</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-

@@ -1,87 +1,192 @@
-// Wait for the DOM to be fully loaded before running scripts
-document.addEventListener('DOMContentLoaded', () => {
+// Wait for the entire HTML document (DOM) to be ready
+$(document).ready(function() {
 
-    // --- Task 0: First Script ---
+    // === Task 0: Setup Check ===
+    // Check if jQuery is loaded and log a message to the console (F12)
+    console.log("jQuery is ready!");
 
-    // 1. Use console.log() to print name and group
-    console.log("Name: Serik Alikhan");
-    console.log("Group: SE-2421");
+    // === PART 1: SELECTORS & CSS ===
 
-    // 2. Script for "alert" message (using Bootstrap's Modal)
-    const helloButton = document.getElementById('helloButton');
+    // --- Task 1: Selectors, .text(), .html(), .css() ---
+    // We are "listening" for a click on the button with id 'btn-task1'
+    $('#btn-task1').on('click', function() {
+        // 1. Select by ID and change text
+        $('#main-title').text('jQuery is Fun!');
 
-    const bootstrapModal = new bootstrap.Modal(document.getElementById('customModal'));
+        // 2. Select by class and change HTML (add <strong> tag)
+        $('.highlight').html('We <strong>successfully</strong> changed this HTML.');
 
-    helloButton.addEventListener('click', () => {
-        bootstrapModal.show();
-    });
-
-    // --- Task 1: Variables & Operators ---
-    console.log("--- Task 1: Variables & Operators ---");
-
-    // 1. Declare variables of different data types
-    let myString = "This is a string";
-    let myNumber = 42;
-    let myBoolean = true;
-
-    console.log("String variable:", myString, "(Type:", typeof myString, ")");
-    console.log("Number variable:", myNumber, "(Type:", typeof myNumber, ")");
-    console.log("Boolean variable:", myBoolean, "(Type:", typeof myBoolean, ")");
-
-    // 2. Perform arithmetic operations
-    let a = 20;
-    let b = 5;
-    console.log("Arithmetic Operations (a=20, b=5):");
-    console.log("Addition (a + b):", a + b);
-    console.log("Subtraction (a - b):", a - b);
-    console.log("Multiplication (a * b):", a * b);
-    console.log("Division (a / b):", a / b);
-    console.log("Modulus (a % b):", a % b);
-
-    // 3. Concatenate strings
-    let firstName = "JavaScript";
-    let lastName = "Developer";
-    let fullName = firstName + " " + lastName;
-    console.log("String Concatenation:", fullName);
-
-
-    // --- Task 2: Changing Content ---
-    console.log("--- Task 2: Attaching Listener ---");
-    const changeTextBtn = document.getElementById('changeTextBtn');
-    const textToChange = document.getElementById('textToChange');
-
-    changeTextBtn.addEventListener('click', () => {
-        textToChange.textContent = "The paragraph text has been successfully changed! Well done!";
-        // Используем классы Bootstrap
-        textToChange.classList.add('text-success', 'fw-bold');
-    });
-
-
-    // --- Task 3: Changing Styles ---
-    console.log("--- Task 3: Attaching Listener ---");
-    const changeStyleBtn = document.getElementById('changeStyleBtn');
-    const styleTarget = document.getElementById('styleTarget');
-
-    changeStyleBtn.addEventListener('click', () => {
-        // Toggle classes to change styles using Bootstrap classes
+        // 3. Select by tag and change CSS (color)
+        $('span').css('color', 'red').css('font-weight', 'bold');
         
-        // Оригинальные классы из HTML
-        styleTarget.classList.toggle('bg-secondary-subtle');
-        styleTarget.classList.toggle('border-secondary-subtle');
-        styleTarget.classList.toggle('text-dark');
+        // Let's also change the button itself
+        $(this).text('Done!');
+    });
 
-        // Новые классы для добавления
-        styleTarget.classList.toggle('bg-purple'); // Кастомный класс
-        styleTarget.classList.toggle('border-purple-dark'); // Кастомный класс
-        styleTarget.classList.toggle('text-white');
-        styleTarget.classList.toggle('shadow-lg'); // Этот класс есть и в Bootstrap
+    // === PART 2: EFFECTS ===
 
-        // Update text content based on new style
-        if (styleTarget.classList.contains('bg-purple')) {
-            styleTarget.textContent = "My style has changed!";
+    // --- Task 2: .hide(), .show(), .toggle() ---
+    
+    // Hide the paragraph
+    $('#btn-hide').click(function() {
+        $('#text-visibility').hide(200);
+    });
+
+    // Show the paragraph
+    $('#btn-show').click(function() {
+        $('#text-visibility').show(300);
+    });
+
+    // Toggle visibility
+    $('#btn-toggle').click(function() {
+        $('#text-visibility').toggle(500);
+    });
+
+    // --- Task 3: .fadeOut(), .fadeIn(), .fadeToggle() ---
+    // Fade out (opacity)
+    $('#btn-fade-out').click(function() {
+        $('#fade-img').fadeOut('slow');
+    });
+
+    // Fade in
+    $('#btn-fade-in').click(function() {
+        $('#fade-img').fadeIn('slow');
+    });
+
+    // Toggle fade
+    $('#btn-fade-toggle').click(function() {
+        $('#fade-img').fadeToggle('slow');
+    });
+
+    // --- Task 4: .slideUp(), .slideDown(), .slideToggle() ---
+    // For this task, I use one button (the panel header) to toggle the sliding panel
+    $('#slide-header').click(function() {
+        // .slideToggle() smoothly animates the element's 'height'
+        $('#slide-panel').slideToggle('medium');
+    });
+
+    // === PART 3: DOM MANIPULATION ===
+
+    // --- Task 5: .append(), .prepend(), .remove() ---
+    let itemCount = 2; // Counter for new items
+
+    // Add to the end of the list
+    $('#btn-append').click(function() {
+        let newItem = '<li class="list-group-item">New Item (Appended) ' + itemCount + '</li>';
+        $('#item-list').append(newItem);
+        itemCount++;
+    });
+
+    // Add to the start of the list
+    $('#btn-prepend').click(function() {
+        let newItem = '<li class="list-group-item">New Item (Prepended) ' + itemCount + '</li>';
+        $('#item-list').prepend(newItem);
+        itemCount++;
+    });
+
+    // Remove the LAST <li> element from the list
+    $('#btn-remove-last').click(function() {
+        // Using the :last-child pseudo-selector
+        $('#item-list li:last-child').remove();
+    });
+
+    // --- Task 6: Modifying Attributes .attr() ---
+    $('#btn-change-img').click(function() {
+        // Change the 'src' (source) attribute of the image
+        $('#attr-img').attr('src', 'images/porsche.jpg');
+    });
+
+    $('#btn-change-link').click(function() {
+        // Change the 'href' attribute of the link and its text
+        $('#attr-link')
+            .attr('href', 'https://www.linkedin.com/in/alikhan-serik-a32531376')
+            .text('Go to LinkedIn');
+    });
+
+    // --- Task 7: Form Interaction .val() ---
+    
+    // For the "Name" field
+    $('#input-name').on('keyup', function() {
+        let name = $(this).val(); // Get the CURRENT value from the input
+        $('#output-name').text(name); // Set it as the text in the <strong> tag
+    });
+
+    // For the "Email" field (can use 'input' for instant response)
+    $('#input-email').on('input', function() {
+        let email = $(this).val();
+        $('#output-email').text(email);
+    });
+
+    // === PART 4: ANIMATIONS ===
+    
+    // --- Task 8: Basic Animation ---
+    $('#btn-animate-basic').click(function() {
+        $('#animate-box').animate({
+            width: "200px",
+            height: "200px",
+            left: "150px" 
+        }, 1000);
+    });
+
+    // --- Task 9: Sequential Animation ---
+    // In jQuery, animations can be "chained"
+    $('#btn-animate-seq').click(function() {
+        let box = $('#animate-box');
+        box.animate({ left: '300px' }, 500)      // Step 1: Move Right
+           .animate({ top: '150px' }, 500)       // Step 2: Move Down
+           .animate({ width: '50px', height: '50px', opacity: 0.5 }, 500) // Step 3: Shrink
+           .animate({ left: '0px', top: '0px', width: '80px', height: '80px', opacity: 1 }, 1000); // Step 4: Back to origin
+    });
+    
+    // --- Task 10: Combined Animation ---
+    $('#btn-animate-combo').click(function() {
+        $('#animate-box').animate({
+            width: "+=50px",   // Increase by 50px
+            height: "+=50px",  // Increase by 50px
+            opacity: 0.3,
+            left: "50px",
+            top: "50px"
+        }, 1000);
+    });
+
+    // --- Reset button for animations ---
+    $('#btn-animate-reset').click(function() {
+        // .css() is applied instantly, without animation
+        $('#animate-box').css({
+            width: "80px",
+            height: "80px",
+            left: "0px",
+            top: "0px",
+            opacity: 1
+        });
+    });
+
+    // === PART 5: MINI-PROJECT (Accordion) ===
+    
+    $('.accordion-header').click(function() {
+        // 1. Get the content panel that is IMMEDIATELY AFTER the clicked header
+        let contentPanel = $(this).next('.accordion-content');
+
+        // 2. Collapse (slideUp) ALL OTHER panels EXCEPT (.not()) the current one
+        $('.accordion-content').not(contentPanel).slideUp('medium');
+        
+        // 3. Expand/Collapse (slideToggle) the CURRENT panel
+        contentPanel.slideToggle('medium');
+
+        // 4. Manage classes for styling (icon, background color)
+        // Remove 'active' class from ALL OTHER headers
+        $('.accordion-header').not(this).removeClass('active');
+        $('.accordion-header').not(this).find('.accordion-icon').text('+').css('transform', 'rotate(0deg)');
+
+        // 5. Toggle the 'active' class for the CURRENT header
+        $(this).toggleClass('active');
+        
+        // 6. Change the icon
+        if ($(this).hasClass('active')) {
+            $(this).find('.accordion-icon').text('×'); // Using "×" instead of "+"
         } else {
-            styleTarget.textContent = "I am the element to be styled!";
+            $(this).find('.accordion-icon').text('+');
         }
     });
 
-});
+}); // End of $(document).ready()
