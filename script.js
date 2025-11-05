@@ -90,6 +90,7 @@ $(document).ready(function() {
         $('#item-list li:last-child').remove();
     });
 
+    // When we hover over Remove buttun it will be show which item will be removed
     $('#btn-remove-last').hover(
         function() {
             $('#item-list li:last-child').css('background', 'rgb(255, 88, 88)');
@@ -100,16 +101,34 @@ $(document).ready(function() {
     );
 
     // --- Task 6: Modifying Attributes .attr() ---
+    let imgCount = 0;
+    let linkCount = 0;
+
     $('#btn-change-img').click(function() {
-        // Change the 'src' (source) attribute of the image
-        $('#attr-img').attr('src', 'images/porsche.jpg');
+        if (imgCount % 2 == 0) {
+            // Change the 'src' (source) attribute of the image
+            $('#attr-img').attr('src', 'images/porsche.jpg');
+            imgCount++;
+        } else {
+            $('#attr-img').attr('src', 'images/fuji_mount.jpg');
+            imgCount++;
+        }
     });
 
     $('#btn-change-link').click(function() {
-        // Change the 'href' attribute of the link and its text
-        $('#attr-link')
-            .attr('href', 'https://www.linkedin.com/in/alikhan-serik-a32531376')
-            .text('Go to LinkedIn');
+        if (linkCount % 2 == 0) {
+            // Change the 'href' attribute of the link and its text
+            $('#attr-link')
+                .attr('href', 'https://www.linkedin.com/in/alikhan-serik-a32531376')
+                .text('Go to LinkedIn');
+            linkCount++;
+        } else {
+             $('#attr-link')
+                .attr('href', 'https://github.com/alikhan-s')
+                .text('Go to GitHub');
+            linkCount++;
+        }
+            
     });
 
     // --- Task 7: Form Interaction .val() ---
