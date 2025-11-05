@@ -39,30 +39,30 @@ $(document).ready(function() {
 
     // Toggle visibility
     $('#btn-toggle').click(function() {
-        $('#text-visibility').toggle(500);
+        $('#text-visibility').toggle(300);
     });
 
     // --- Task 3: .fadeOut(), .fadeIn(), .fadeToggle() ---
     // Fade out (opacity)
     $('#btn-fade-out').click(function() {
-        $('#fade-img').fadeOut('slow');
+        $('#fade-img').fadeOut('fast');
     });
 
     // Fade in
     $('#btn-fade-in').click(function() {
-        $('#fade-img').fadeIn('slow');
+        $('#fade-img').fadeIn('fast');
     });
 
     // Toggle fade
     $('#btn-fade-toggle').click(function() {
-        $('#fade-img').fadeToggle('slow');
+        $('#fade-img').fadeToggle('fast');
     });
 
     // --- Task 4: .slideUp(), .slideDown(), .slideToggle() ---
     // For this task, I use one button (the panel header) to toggle the sliding panel
     $('#slide-header').click(function() {
         // .slideToggle() smoothly animates the element's 'height'
-        $('#slide-panel').slideToggle('medium');
+        $('#slide-panel').slideToggle();
     });
 
     // === PART 3: DOM MANIPULATION ===
@@ -89,6 +89,15 @@ $(document).ready(function() {
         // Using the :last-child pseudo-selector
         $('#item-list li:last-child').remove();
     });
+
+    $('#btn-remove-last').hover(
+        function() {
+            $('#item-list li:last-child').css('background', 'rgb(255, 88, 88)');
+        },
+        function() {
+            $('#item-list li:last-child').css('background', '');
+        }
+    );
 
     // --- Task 6: Modifying Attributes .attr() ---
     $('#btn-change-img').click(function() {
